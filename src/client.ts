@@ -50,7 +50,8 @@ export class RuvdsClient {
     const qs = new URLSearchParams();
     if (params.type !== undefined) qs.set("type", params.type);
     if (params.currency_id !== undefined) qs.set("currency_id", String(params.currency_id));
-    const query = qs.toString() ? `?${qs.toString()}` : "";
+    const qstr = qs.toString();
+    const query = qstr ? `?${qstr}` : "";
     return this.request(`/v2/balance${query}`);
   }
 
